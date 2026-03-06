@@ -56,7 +56,6 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     const btn = document.querySelector("button");
     btn.disabled = true; btn.innerText = "جارٍ إرسال الطلب...";
 
-    // جمع كل القيم بطريقة ديناميكية
     const fields = ["nom", "prenom", "wilaya", "commune", "telephone"];
     const data = {};
     fields.forEach(id => {
@@ -65,12 +64,12 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     });
 
     try {
-        // الرابط الجديد الصحيح للـ Web App
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwqMIH_MuD_H2iNrICumk78KiMahGaUweFdHvcG1QcsrooAOxnyFU21ceH0VNrZbFjqmQ/exec", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
+    
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxfw0cy_Fl_75Er02PD8nhBO29B0KI23oiujuxu2AIHq1YD2l5XkfS-SHcWTUZ8mvSYfQ/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+});
 
         const result = await response.json();
         if(result.result === "success"){
@@ -89,4 +88,5 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
 </script>
 
 </body>
+
 </html>
